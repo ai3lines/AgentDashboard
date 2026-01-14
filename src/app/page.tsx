@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 interface Agent {
   id: string;
@@ -195,7 +196,7 @@ export default function Home() {
       <main className="flex-1 flex flex-col items-center justify-center px-4 py-8">
         {/* Logo */}
         <div className="mb-6">
-          <a href="https://3lines.com.sa" target="_blank" rel="noopener noreferrer" className="cursor-pointer">
+          <Link href="https://3lines.com.sa" target="_blank" rel="noopener noreferrer" className="block cursor-pointer">
             <Image
               src="/3lines_logo.png"
               alt="3Lines Logo"
@@ -204,7 +205,7 @@ export default function Home() {
               className="h-16 lg:h-20 w-auto hover:opacity-80 transition-opacity"
               priority
             />
-          </a>
+          </Link>
         </div>
 
         {/* Title */}
