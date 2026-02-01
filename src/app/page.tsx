@@ -191,7 +191,7 @@ function AgentCard({ agent, index }: { agent: Agent; index: number }) {
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-br from-pink-100 via-pink-50 to-pink-200 dark:from-pink-950 dark:via-pink-900 dark:to-pink-950">
+    <div className="min-h-screen flex flex-col bg-gradient-to-br from-red-500 via-red-600 to-red-500 dark:from-red-600 dark:via-red-700 dark:to-red-600">
       {/* Main Content - Flex grow to push footer down */}
       <main className="flex-1 flex flex-col items-center justify-center px-4 py-8">
         {/* Logo */}
@@ -210,7 +210,7 @@ export default function Home() {
 
         {/* Title */}
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 dark:text-white mb-3 text-center">
-          <span className="bg-gradient-to-r from-[#0066B3] to-[#00A09D] bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-fuchsia-400 via-purple-500 to-violet-400 bg-clip-text text-transparent drop-shadow-[0_0_10px_rgba(192,38,211,0.8)]">
             AI Agents Suite
           </span>
         </h1>
