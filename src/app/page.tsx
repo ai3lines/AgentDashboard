@@ -214,7 +214,7 @@ export default function Home() {
             AI Agents Suite
           </span>
         </h1>
-        <p className="text-base lg:text-lg text-purple-500 dark:text-purple-400 max-w-2xl mx-auto text-center mb-8 lg:mb-12">
+        <p className="text-base lg:text-lg text-gray-500 dark:text-gray-400 max-w-2xl mx-auto text-center mb-8 lg:mb-12">
           Select an agent to get started
         </p>
 
