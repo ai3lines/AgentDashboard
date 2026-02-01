@@ -191,7 +191,7 @@ function AgentCard({ agent, index }: { agent: Agent; index: number }) {
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-br from-slate-50 via-white to-slate-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
+    <div className="min-h-screen flex flex-col bg-gradient-to-br from-pink-400 via-pink-500 to-pink-400 dark:from-pink-600 dark:via-pink-700 dark:to-pink-600">
       {/* Main Content - Flex grow to push footer down */}
       <main className="flex-1 flex flex-col items-center justify-center px-4 py-8">
         {/* Logo */}
