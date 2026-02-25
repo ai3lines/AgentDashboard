@@ -81,9 +81,8 @@ const agents: Agent[] = [
     id: "support",
     name: "Support Agent",
     description: "Customer support and helpdesk",
-    url: "https://support.ai3lines.com",
+    url: "https://helpdesk.ai3lines.com/login",
     gradient: "from-rose-500 to-pink-600",
-    comingSoon: true,
     icon: (
       <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
@@ -95,96 +94,99 @@ const agents: Agent[] = [
 function AgentCard({ agent, index }: { agent: Agent; index: number }) {
   const [isHovered, setIsHovered] = useState(false);
 
-  const handleClick = () => {
-    if (!agent.comingSoon) {
-      window.open(agent.url, "_blank", "noopener,noreferrer");
-    }
-  };
+  const cardContent = (
+    <div
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      className={`
+        relative group cursor-pointer
+        bg-white dark:bg-slate-800 rounded-2xl p-6 lg:p-8
+        shadow-lg hover:shadow-2xl
+        transform transition-all duration-300 ease-out
+        ${isHovered ? "scale-105 -translate-y-2" : "scale-100"}
+        ${agent.comingSoon ? "opacity-60" : ""}
+        border border-gray-100 dark:border-slate-700
+      `}
+    >
+      {/* Gradient overlay on hover */}
+      <div
+        className={`
+          absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-10
+          bg-gradient-to-br ${agent.gradient}
+          transition-opacity duration-300
+        `}
+      />
+
+      {/* Coming Soon Badge */}
+      {agent.comingSoon && (
+        <div className="absolute top-3 right-3 bg-gray-200 dark:bg-slate-600 text-gray-600 dark:text-gray-300 text-xs font-semibold px-2 py-1 rounded-full">
+          Coming Soon
+        </div>
+      )}
+
+      {/* Icon Container */}
+      <div
+        className={`
+          w-16 h-16 lg:w-20 lg:h-20 mx-auto mb-4 lg:mb-6 rounded-2xl
+          bg-gradient-to-br ${agent.gradient}
+          flex items-center justify-center text-white
+          shadow-lg group-hover:shadow-xl
+          transform transition-all duration-300
+          ${isHovered ? "scale-110 rotate-3" : "scale-100 rotate-0"}
+        `}
+      >
+        {agent.icon}
+      </div>
+
+      {/* Content */}
+      <div className="text-center">
+        <h3 className="text-lg lg:text-xl font-bold text-gray-800 dark:text-white mb-2">
+          {agent.name}
+        </h3>
+        <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
+          {agent.description}
+        </p>
+      </div>
+
+      {/* Arrow indicator */}
+      {!agent.comingSoon && (
+        <div
+          className={`
+            absolute bottom-3 right-3
+            transform transition-all duration-300
+            ${isHovered ? "translate-x-1 opacity-100" : "opacity-0"}
+          `}
+        >
+          <svg
+            className="w-5 h-5 text-gray-400"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M17 8l4 4m0 0l-4 4m4-4H3"
+            />
+          </svg>
+        </div>
+      )}
+    </div>
+  );
 
   return (
     <div
       className={`opacity-0 animate-fade-in-up stagger-${index + 1}`}
       style={{ animationFillMode: "forwards" }}
     >
-      <div
-        onClick={handleClick}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-        className={`
-          relative group cursor-pointer
-          bg-white dark:bg-slate-800 rounded-2xl p-6 lg:p-8
-          shadow-lg hover:shadow-2xl
-          transform transition-all duration-300 ease-out
-          ${isHovered ? "scale-105 -translate-y-2" : "scale-100"}
-          ${agent.comingSoon ? "opacity-60" : ""}
-          border border-gray-100 dark:border-slate-700
-        `}
-      >
-        {/* Gradient overlay on hover */}
-        <div
-          className={`
-            absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-10
-            bg-gradient-to-br ${agent.gradient}
-            transition-opacity duration-300
-          `}
-        />
-
-        {/* Coming Soon Badge */}
-        {agent.comingSoon && (
-          <div className="absolute top-3 right-3 bg-gray-200 dark:bg-slate-600 text-gray-600 dark:text-gray-300 text-xs font-semibold px-2 py-1 rounded-full">
-            Coming Soon
-          </div>
-        )}
-
-        {/* Icon Container */}
-        <div
-          className={`
-            w-16 h-16 lg:w-20 lg:h-20 mx-auto mb-4 lg:mb-6 rounded-2xl
-            bg-gradient-to-br ${agent.gradient}
-            flex items-center justify-center text-white
-            shadow-lg group-hover:shadow-xl
-            transform transition-all duration-300
-            ${isHovered ? "scale-110 rotate-3" : "scale-100 rotate-0"}
-          `}
-        >
-          {agent.icon}
-        </div>
-
-        {/* Content */}
-        <div className="text-center">
-          <h3 className="text-lg lg:text-xl font-bold text-gray-800 dark:text-white mb-2">
-            {agent.name}
-          </h3>
-          <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-            {agent.description}
-          </p>
-        </div>
-
-        {/* Arrow indicator */}
-        {!agent.comingSoon && (
-          <div
-            className={`
-              absolute bottom-3 right-3
-              transform transition-all duration-300
-              ${isHovered ? "translate-x-1 opacity-100" : "opacity-0"}
-            `}
-          >
-            <svg
-              className="w-5 h-5 text-gray-400"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M17 8l4 4m0 0l-4 4m4-4H3"
-              />
-            </svg>
-          </div>
-        )}
-      </div>
+      {agent.comingSoon ? (
+        cardContent
+      ) : (
+        <a href={agent.url} target="_blank" rel="noopener noreferrer">
+          {cardContent}
+        </a>
+      )}
     </div>
   );
 }
