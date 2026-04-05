@@ -55,9 +55,8 @@ const agents: Agent[] = [
     id: "finance",
     name: "Finance Agent",
     description: "Financial analysis and management",
-    url: "https://finances.ai3lines.com",
+    url: "https://acc.ai3lines.com/",
     gradient: "from-amber-500 to-orange-600",
-    comingSoon: true,
     icon: (
       <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -65,15 +64,14 @@ const agents: Agent[] = [
     ),
   },
   {
-    id: "legal",
-    name: "Legal Agent",
-    description: "Legal document analysis and compliance",
-    url: "https://legal.ai3lines.com",
+    id: "docs",
+    name: "3Lines Document Generator",
+    description: "Professional document automation",
+    url: "https://docs.ai3lines.com/login",
     gradient: "from-slate-500 to-gray-600",
-    comingSoon: true,
     icon: (
       <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
       </svg>
     ),
   },
